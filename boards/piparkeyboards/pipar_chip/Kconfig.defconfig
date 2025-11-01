@@ -1,5 +1,10 @@
 if BOARD_PIPAR_CHIP
 
+config BOARD_ENABLE_DCDC
+    bool "Enable DCDC mode"
+    select SOC_DCDC_NRF52X
+    default y
+
 config ZMK_KEYBOARD_NAME
     default "Pipar Chip"
 
