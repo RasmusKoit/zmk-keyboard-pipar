@@ -1,0 +1,11 @@
+config SHIELD_PIPAR_SOOL_CENTRAL
+    def_bool $(shields_list_contains,pipar_sool_central)
+
+config SHIELD_PIPAR_SOOL_DONGLE
+    def_bool $(shields_list_contains,pipar_sool_dongle)
+
+config SHIELD_PIPAR_SOOL_LEFT
+    def_bool $(shields_list_contains,pipar_sool_left)
+
+config SHIELD_PIPAR_SOOL_RIGHT
+    def_bool $(shields_list_contains,pipar_sool_right)
