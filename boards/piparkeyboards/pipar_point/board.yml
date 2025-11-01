@@ -1,0 +1,9 @@
+boards:
+  - name: pipar_point_left
+    vendor: piparkeyboards
+    socs:
+      - name: nrf52840
+  - name: pipar_point_right
+    vendor: piparkeyboards
+    socs:
+      - name: nrf52840

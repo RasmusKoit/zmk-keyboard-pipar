@@ -1,11 +1,11 @@
 # Delete all unused properties.
 
 # Give your module a name
-name: zmk-module-template
+name: zmk-keyboard-pipar
 build:
-  # List your dependencies
-  depends:
-    - zmk-example-dependency
+  # # List your dependencies
+  # depends:
+  #   - zmk-example-dependency
   # Folder containing a "CMakeLists.txt" (. = root)
   cmake: .
   # Kconfig filepath
