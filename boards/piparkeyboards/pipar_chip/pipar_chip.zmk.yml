@@ -1,6 +1,6 @@
 file_format: "1"
-id: pipar_point
-name: Pipar Point
+id: pipar_chip
+name: Pipar Chip
 url: https://github.com/rasmuskoit/pipar
 type: board
 arch: arm
