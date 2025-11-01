@@ -1,0 +1,5 @@
+boards:
+  - name: pipar_chip
+    vendor: piparkeyboards
+    socs:
+      - name: nrf52840
