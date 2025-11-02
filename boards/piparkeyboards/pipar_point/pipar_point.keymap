@@ -56,7 +56,7 @@
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
 &kp B     &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &kp A
 &kp D     &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp SLASH         &hmr LALT COMMA  &kp PERIOD       &kp L
-                                                      &lt 1 ESC         &lt 1 SPACE       &lt 1 TAB         &lt 1 RET         &lt 1 BSCP        &lt 1 DEL
+                                                      &lt 1 ESC         &lt 1 SPACE       &lt 1 TAB         &lt 1 RET         &lt 1 BSPC        &lt 1 DEL
             >;
         };
 
