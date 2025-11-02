@@ -2,9 +2,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <behaviors/unicode.dtsi>
-#include "keymap_helper.h"
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/backlight.h>
+#include "keymap_helper.h"
 
 &uc {
     default-mode = <UC_MODE_WIN_COMPOSE>;
