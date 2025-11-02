@@ -11,7 +11,7 @@
     default-mode = <UC_MODE_WIN_COMPOSE>;
     minimum-length = <0>;
     win-compose-key = <RALT>;
-}
+};
 
 / {
 
@@ -157,8 +157,5 @@
                                                       &kp K_APP         &kp SPACE         &kp TAB         &none             &none             &none
             >;
         };
-
-
     };
-
 };
