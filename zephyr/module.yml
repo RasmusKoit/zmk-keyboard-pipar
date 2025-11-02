@@ -2,5 +2,6 @@ name: zmk-keyboard-pipar
 build:
   depends:
     - zmk-unicode
+    - kb_zmk_ps2_mouse_trackpoint_driver
   settings:
     board_root: .

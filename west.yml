@@ -2,7 +2,12 @@ manifest:
   remotes:
     - name: urob
       url-base: https://github.com/urob
+    - name: filippor
+      url-base: https://github.com/filippor
   projects:
     - name: zmk-unicode
       remote: urob
       revision: v0.3
+    - name: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: filippor
+      revision: badjeff-4.1
