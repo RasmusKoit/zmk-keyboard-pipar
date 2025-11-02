@@ -3,9 +3,6 @@ manifest:
     - name: urob
       url-base: https://github.com/urob
   projects:
-    - name: zmk-helpers
-      remote: urob
-      revision: main
     - name: zmk-unicode
       remote: urob
       revision: v0.3
