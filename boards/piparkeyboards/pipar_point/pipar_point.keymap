@@ -8,7 +8,6 @@
 
 &uc {
     default-mode = <UC_MODE_WIN_COMPOSE>;
-    minimum-length = <0>;
     win-compose-key = <RALT>;
 };
 
