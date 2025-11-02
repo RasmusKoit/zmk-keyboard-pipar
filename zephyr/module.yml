@@ -1,4 +1,6 @@
 name: zmk-keyboard-pipar
 build:
+  depends:
+    - zmk-helpers
   settings:
     board_root: .
