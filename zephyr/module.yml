@@ -1,6 +1,4 @@
 name: zmk-keyboard-pipar
 build:
-  depends:
-    - zmk-unicode
   settings:
     board_root: .
