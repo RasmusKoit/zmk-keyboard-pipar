@@ -4,12 +4,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/backlight.h>
+#include <behaviors/unicode.dtsi>
 #include "keymap_helper.h"
 
-// &uc {
-//     default-mode = <UC_MODE_WIN_COMPOSE>;
-//     win-compose-key = <RALT>;
-// };
+&uc {
+    default-mode = <UC_MODE_WIN_COMPOSE>;
+    win-compose-key = <RALT>;
+};
 
 / {
 
@@ -82,8 +83,8 @@
 // &uc 0xe4 0xc4     &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp SLASH         &hmr LALT COMMA  &kp PERIOD       &uc 0xfc 0xdc
             bindings = <
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
-// &kp L          &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &kp X
-// &kp E          &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp SLASH         &hmr LALT COMMA  &kp PERIOD       &kp Y
+&uc ET_OT         &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &uc ET_OE
+&uc ET_AE         &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp SLASH         &hmr LALT COMMA  &kp PERIOD       &uc ET_UE
                                                       &lt 3 ESC         &lt 1 SPACE       &lt 2 TAB         &lt 5 RET         &lt 4 BSPC        &lt 6 DEL
             >;
         };
