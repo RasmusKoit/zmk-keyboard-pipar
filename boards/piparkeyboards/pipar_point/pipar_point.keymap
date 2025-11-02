@@ -79,12 +79,11 @@
             // |  Õ  |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  Ö  |
             // |  Ä  |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |  Ü  |
             //                   | ESC | SPC | TAB |   | ENT | BSCP | DEL |
-// &uc 0xf5 0xd5     &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &uc 0xf6 0xd6
-// &uc 0xe4 0xc4     &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp SLASH         &hmr LALT COMMA  &kp PERIOD       &uc 0xfc 0xdc
+
             bindings = <
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
 &uc ET_UE         &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &uc ET_OT
-&uc ET_OE         &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp DOT           &hmr LALT COMMA  &kp SLASH       &uc ET_AE
+&uc ET_OE         &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &hmr LALT DOT    &kp SLASH        &uc ET_AE
                                                       &lt 3 ESC         &lt 1 SPACE       &lt 2 TAB         &lt 5 RET         &lt 4 BSPC        &lt 6 DEL
             >;
         };
