@@ -8,6 +8,10 @@
 #include "pipar_point-layouts.dtsi"
 #include "pipar_point-pinctrl.dtsi"
 
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h> 
+
 &physical_layout0 {
     transform = <&matrix_transform0>;
 };
