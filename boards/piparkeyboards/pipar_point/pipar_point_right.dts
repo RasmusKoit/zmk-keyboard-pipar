@@ -44,8 +44,8 @@
 // in my I swapped clock and data to be compatible with rp2040 pioj
 // #define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 16 GPIO_ACTIVE_HIGH>
 // #define MOUSE_PS2_PIN_SDA_PRO_MICRO <&pro_micro 15 GPIO_ACTIVE_HIGH>
-#define MOUSE_PS2_PIN_SCL_NRF <&gpio0 12 GPIO_ACTIVE_HIGH>
-#define MOUSE_PS2_PIN_SDA_NRF <&gpio0 14 GPIO_ACTIVE_HIGH>
+#define MOUSE_PS2_PIN_SCL_NRF <&gpio0 14 GPIO_ACTIVE_HIGH>
+#define MOUSE_PS2_PIN_SDA_NRF <&gpio0 12 GPIO_ACTIVE_HIGH>
 
 // Configure the Power-On-Reset pin
 //
@@ -80,7 +80,7 @@
 //
 // We don't define the SCL pin, because UART uses a baud rate instead of
 // a clock pin.
-#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 14)>
+#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 12)>
 
 // Configure UART BAUD Rate
 //
