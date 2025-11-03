@@ -475,9 +475,9 @@
     trackpoint_listener: trackpoint_listener {
         compatible = "zmk,input-listener";
         device = <&mouse_ps2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_scaler 0 1>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
         scroller {
-            layers = <2>;
+            layers = <9>;
             //process-next;
             input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_scaler 1 8>,<&zip_xy_to_scroll_mapper>;
         };
