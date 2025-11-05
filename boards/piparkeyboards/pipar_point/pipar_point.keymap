@@ -74,6 +74,34 @@
             hold-trigger-on-release;
         };
 
+        bt_sel_0: bluetooth_select_0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&bt BT_SEL 0 &bt BT_CLR>;
+            mods = <(LSHFT | RSHFT)>;
+        };
+
+        bt_sel_1: bluetooth_select_1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&bt BT_SEL 1 &bt BT_CLR>;
+            mods = <(LSHFT | RSHFT)>;
+        };
+
+        bt_sel_2: bluetooth_select_2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&bt BT_SEL 2 &bt BT_CLR>;
+            mods = <(LSHFT | RSHFT)>;
+        };
+
+        bt_sel_3: bluetooth_select_3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&bt BT_SEL 3 &bt BT_CLR>;
+            mods = <(LSHFT | RSHFT)>;
+        };
+
     };
 
     macros {
@@ -147,7 +175,7 @@
             bindings = <
                   &none             &none             &none             &none             &none             &bl BL_CYCLE      &none             &none             &none             &none 
 &none             &kp LGUI          &kp LALT          &kp LCTRL         &kp LSHFT         &none             &bl BL_TOG        &kp C_PREV        &kp C_VOL_DN      &kp C_VOL_UP      &kp C_NEXT       &bl BL_INC
-&none             &none             &hml RALT X       &none             &none             &none             &out OUT_TOG      &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3     &bl BL_DEC
+&none             &none             &hml RALT X       &none             &none             &none             &out OUT_TOG      &bt_sel_0         &bt_sel_1         &bt_sel_2         &bt_sel_3        &bl BL_DEC
                                                       &none             &none             &none             &kp C_STOP        &kp C_PP          &kp C_MUTE
             >;
         };
