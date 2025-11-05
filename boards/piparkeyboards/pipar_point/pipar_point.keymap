@@ -105,7 +105,7 @@
         word_caps: capitalize_word_capslock {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&capsword>, <&kp CAPS_LOCK>;
+            bindings = <&caps_word>, <&kp CAPS_LOCK>;
             mods = <(LSHFT | RSHFT)>;
         };
 
