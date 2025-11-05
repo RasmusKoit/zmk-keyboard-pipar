@@ -15,7 +15,7 @@ config USB_NRFX
 
 endif # USB_DEVICE_STACK
 
-config BT_CTLR
+config HAS_BT_CTLR
     default BT
 
 endif # BOARD_PIPAR_CHIP
