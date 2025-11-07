@@ -3,3 +3,46 @@ config BOARD_PIPAR_POINT_RIGHT
     imply RETAINED_MEM
     imply RETENTION
     imply RETENTION_BOOT_MODE
+
+config PIPAR_HW_SHELL
+    bool "enable pipar development shell"
+    select BINDESC
+    select BINDESC_APP_BUILD_VERSION
+    select BINDESC_BUILD_DATE_TIME_STRING
+    select BINDESC_DEFINE
+    select BINDESC_DEFINE_BUILD_TIME
+    select BINDESC_DEFINE_VERSION
+    select CBPRINTF_FP_SUPPORT
+    select CONSOLE
+    select SHELL
+    select SHELL_CMDS
+    select SHELL_CMDS_SELECT
+    imply BT_SHELL if BT
+    imply BT_GATT_DYNAMIC_DB if BT
+    imply DEVICE_SHELL
+    imply DEVICE_SHELL_INIT_CMD
+    imply DEVMEM_SHELL
+    imply I2C_SHELL if I2C
+    imply INPUT_SHELL if INPUT
+    imply INPUT_SHELL_KBD_MATRIX_STATE if INPUT && DT_HAS_GPIO_KBD_MATRIX_ENABLED
+    imply GPIO_SHELL if GPIO
+    imply KERNEL_SHELL
+    imply LED_SHELL if LED
+    imply PM_DEVICE_SHELL if PM_DEVICE
+    imply REGULATOR_SHELL if REGULATOR
+    imply SENSOR_SHELL if SENSOR
+    imply SETTINGS_SHELL if SETTINGS
+    imply SHELL_TAB
+    imply SHELL_TAB_AUTOCOMPLETION
+    imply SPI_SHELL if SPI
+    imply UART_SHELL if SERIAL
+    imply STDOUT_CONSOLE
+    imply UART_CONSOLE
+    imply UART_INTERRUPT_DRIVEN
+    imply UART_LINE_CTRL
+    imply SERIAL
+    imply USB_CDC_ACM
+    depends on CBPRINTF_COMPLETE && !MCUBOOT
+    default y
+    help
+      enable dev shell
