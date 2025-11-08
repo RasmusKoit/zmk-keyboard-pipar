@@ -75,18 +75,6 @@
         };
     };
 
-#else
-
-    / {
-        gpio_ps2: gpio_ps2 {
-            status = "disabled";
-
-            compatible = "gpio-ps2";
-            scl-gpios = MOUSE_PS2_PIN_SCL_NRF;
-            sda-gpios = MOUSE_PS2_PIN_SDA_NRF;
-        };
-    };
-
 #endif
 
 
@@ -96,8 +84,6 @@
         
 #ifdef MOUSE_PS2_DRIVER_UART
 	    ps2-device = <&uart_ps2>;
-#else
-	    ps2-device = <&gpio_ps2>;
 #endif
 
 #ifdef MOUSE_PS2_PIN_RST_PRO_MICRO
