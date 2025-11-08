@@ -1,7 +1,7 @@
 if(BOARD_REVISION STREQUAL "right")
     message(STATUS "Checking for required snippets for BOARD_REVISION: ${BOARD_REVISION}")
     message(STATUS "Current snippets: ${SNIPPET}")
-    if(NOT trackpoint IN_LIST SNIPPET)
+    if(NOT "trackpoint" IN_LIST SNIPPET)
         message(FATAL_ERROR "trackpoint snippet must be included to build this board")
     endif()
 endif()
