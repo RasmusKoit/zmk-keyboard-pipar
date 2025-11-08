@@ -15,6 +15,7 @@ config PIPAR_POINT_LEFT
 
 config PIPAR_POINT_TRACKPOINT
     bool "Pipar Point Trackpoint"
+    imply SERIAL
     default n
     depends on PIPAR_POINT_RIGHT
     help
