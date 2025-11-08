@@ -3,12 +3,12 @@
 
 if BOARD_PIPAR_POINT
 
-# configdefault BT_DIS_MANUF_NAME_STR
-#     default "Pipar Keyboards"
-# configdefault BT_DIS_MODEL_NUMBER_STR
-#     default "Pipar Point"
-# configdefault USB_DEVICE_MANUFACTURER
-#     default "PiparKeyboards"
+configdefault BT_DIS_MANUF_NAME_STR
+    default "Pipar Keyboards"
+configdefault BT_DIS_MODEL_NUMBER_STR
+    default "Pipar Point"
+configdefault USB_DEVICE_MANUFACTURER
+    default "PiparKeyboards"
 config BOARD
     default "pipar_point"
 config ZMK_SPLIT
