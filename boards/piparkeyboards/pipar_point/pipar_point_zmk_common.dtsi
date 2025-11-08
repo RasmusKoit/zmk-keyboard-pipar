@@ -43,6 +43,8 @@
   physical_layout0: physical_layout_0 {
     compatible = "zmk,physical-layout";
     display-name = "pipar_point-layout";
+    transform = <&matrix_transform0>;
+    input = <&pipar_matrix>;
 
     keys  //                   w   h    x    y     rot    rx    ry
       = <&key_physical_attrs 100 100   61  166 (-2500)   111   216>
