@@ -3,6 +3,7 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h> 
 
 #define MOUSE_PS2_DRIVER_UART
+#define MOUSE_PS2_DT_PRESENT
 #define MOUSE_PS2_PIN_SCL_NRF <&gpio0 14 GPIO_ACTIVE_HIGH>
 #define MOUSE_PS2_PIN_SDA_NRF <&gpio0 12 GPIO_ACTIVE_HIGH>
 #define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 12)>
@@ -92,9 +93,10 @@
 };
 
 /{
-    trackpoint_listener: trackpoint_listener {
+    snippet_trackpoint_listener: snippet_trackpoint_listener {
         compatible = "zmk,input-listener";
         device = <&mouse_ps2>;
+        
         mouse {
             layers = <2>;
             input-processors = <&zip_temp_layer 2 500>;
