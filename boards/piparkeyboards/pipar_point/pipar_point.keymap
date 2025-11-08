@@ -7,7 +7,7 @@
 #include "include/keymap_helper.h"
 
 #ifdef PIPAR_POINT_TRACKPOINT
-    #include <include/mouse_tp.dtsi>
+    #include "include/mouse_tp.dtsi"
     #define U_TOG_TP_SET &tog MOUSE_TP_SET
 #else
     #define U_TOG_TP_SET &none
