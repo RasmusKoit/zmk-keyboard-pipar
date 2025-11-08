@@ -1,6 +1,10 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h> 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/mouse_settings.h>
+#include <behaviors/mouse_keys.dtsi>
+#include <behaviors/mouse_setting.dtsi>
 
 #define MOUSE_PS2_DRIVER_UART
 #define MOUSE_PS2_PIN_SCL_NRF <&gpio0 14 GPIO_ACTIVE_HIGH>
