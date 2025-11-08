@@ -8,12 +8,6 @@
 # The _defconfig should contain mandatory settings for your system clock, console, etc. 
 # The results are architecture-specific.
 
-CONFIG_USB_DEVICE_STACK=y
-CONFIG_USB_CDC_ACM=y
-CONFIG_SERIAL=y
-CONFIG_UART_INTERRUPT_DRIVEN=y
-CONFIG_UART_LINE_CTRL=y
-
 # Use pinctrl
 CONFIG_PINCTRL=y
 
