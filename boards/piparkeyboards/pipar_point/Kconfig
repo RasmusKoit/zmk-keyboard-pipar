@@ -16,6 +16,7 @@ config PIPAR_POINT_LEFT
 config PIPAR_POINT_TRACKPOINT
     bool "Pipar Point Trackpoint"
     select SERIAL
+    select UART_ASYNC_API
     default n
     depends on PIPAR_POINT_RIGHT
     help
