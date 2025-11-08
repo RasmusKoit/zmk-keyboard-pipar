@@ -5,3 +5,4 @@ build:
     - kb_zmk_ps2_mouse_trackpoint_driver
   settings:
     board_root: .
+    snippet_root: .

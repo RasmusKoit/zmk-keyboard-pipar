@@ -1,9 +1,12 @@
-boards:
-  - name: pipar_point_left
-    vendor: piparkeyboards
-    socs:
-      - name: nrf52840
-  - name: pipar_point_right
-    vendor: piparkeyboards
-    socs:
-      - name: nrf52840
+board:
+  name: pipar_point
+  vendor: piparkeyboards
+  socs:
+    - name: nrf52840
+  revision:
+    format: custom
+    default: 'right'
+    exact: true
+    revisions:
+      - name: left
+      - name: right

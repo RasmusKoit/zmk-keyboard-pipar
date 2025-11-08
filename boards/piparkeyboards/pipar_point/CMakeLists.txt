@@ -1,0 +1,5 @@
+if(BOARD_REVISION STREQUAL "right")
+    if(NOT trackpoint IN_LIST SNIPPET)
+        message(FATAL_ERROR "trackpoint snippet must be included to build this board")
+    endif()
+endif()

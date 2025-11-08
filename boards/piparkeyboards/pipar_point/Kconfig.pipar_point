@@ -1,0 +1,12 @@
+# A shared Kconfig file which can be sourced both in Zephyr Kconfig and sysbuild Kconfig trees.
+# This file selects the SoC in the Kconfig tree and potential other SoC related Kconfig settings.
+# This file must not select anything outside the re-usable Kconfig board and SoC trees.
+
+config BOARD_PIPAR_POINT
+    select SOC_NRF52840_QIAA
+    select ARM_MPU
+    imply RETAINED_MEM
+    imply RETENTION
+    imply RETENTION_BOOT_MODE
+    help
+      Enable support for the Pipar Point board using the nRF52840 SoC.

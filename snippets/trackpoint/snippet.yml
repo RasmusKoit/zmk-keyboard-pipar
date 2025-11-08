@@ -1,0 +1,4 @@
+name: trackpoint
+append:
+  EXTRA_CONF_FILE: trackpoint.conf
+  EXTRA_DTC_OVERLAY_FILE: trackpoint.overlay

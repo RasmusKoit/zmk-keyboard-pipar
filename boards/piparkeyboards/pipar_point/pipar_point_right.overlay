@@ -1,0 +1,6 @@
+#include "pipar_point_zmk_common.dtsi"
+
+&matrix_transform0 {
+    col-offset = <7>;
+};
+
