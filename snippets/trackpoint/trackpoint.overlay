@@ -63,7 +63,7 @@
         current-speed = MOUSE_PS2_UART_BAUD_RATE;
         pinctrl-0 = <&uart0_ps2_default>;
         pinctrl-1 = <&uart0_ps2_off>;
-
+        status = "okay";
         pinctrl-names = "default", "sleep";
 
         uart_ps2: uart_ps2 {
@@ -92,9 +92,10 @@
 };
 
 /{
-    snippet_trackpoint_listener: snippet_trackpoint_listener {
+    trackpoint_listener: trackpoint_listener {
         compatible = "zmk,input-listener";
         device = <&mouse_ps2>;
+        status = "okay";
         mouse {
             layers = <2>;
             input-processors = <&zip_temp_layer 2 500>;
