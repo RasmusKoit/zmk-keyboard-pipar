@@ -8,6 +8,7 @@
 # The _defconfig should contain mandatory settings for your system clock, console, etc. 
 # The results are architecture-specific.
 
+CONFIG_ARM_MPU=y
 # Use pinctrl
 CONFIG_PINCTRL=y
 
