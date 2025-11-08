@@ -2,6 +2,8 @@
 # This file selects the SoC in the Kconfig tree and potential other SoC related Kconfig settings.
 # This file must not select anything outside the re-usable Kconfig board and SoC trees.
 
+rsource "Kconfig.defconfig"
+
 config BOARD_PIPAR_POINT
     select SOC_NRF52840_QIAA
     select ARM_MPU
