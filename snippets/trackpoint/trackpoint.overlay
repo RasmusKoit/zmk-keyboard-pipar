@@ -103,7 +103,7 @@
         
         mouse {
             layers = <2>;
-            input-processors = <&zip_temp_layer 2 500>;
+            input-processors = <&zip_temp_layer 3 500>;
         };
     };    
 };
