@@ -247,7 +247,7 @@
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
 &uc ET_UE         &kp A             &kp R             &kp S             &kp T             &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O       &uc ET_OT
 &uc ET_OE         &kp Z             &kp X             &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &kp DOT          &kp SLASH         &uc ET_AE
-                                                      &kp ESC           &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
+                                                      &mt LSHFT ESC     &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
     };
