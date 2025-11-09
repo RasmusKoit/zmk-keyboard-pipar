@@ -84,14 +84,14 @@
     mouse_ps2: mouse_ps2 {
         compatible = "zmk,input-mouse-ps2";
         status = "okay";
+	    ps2-device = <&uart_ps2>;
         tp-sensitivity = <128>;
         tp-val6-upper-speed = <200>;
-        tp-press-to-select;
-        tp-xy-swap;
         tp-x-invert;
         tp-y-invert;
-	    ps2-device = <&uart_ps2>;
-
+        tp-neg-inertia = <6>;
+        tp-press-to-select;
+        tp-press-to-select-threshold = <10>;
         // rst-gpios = MOUSE_PS2_PIN_RST_PRO_MICRO;
     };
 };
