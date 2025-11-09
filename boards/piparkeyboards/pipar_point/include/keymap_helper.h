@@ -13,10 +13,11 @@
 #define ET_OE  0xf6 0xd6    // ö/Ö
 #define ET_UE  0xfc 0xdc    // ü/Ü
 
-#define L_BASE   0
-#define L_NAV    1
-#define L_MOUSE  2
-#define L_MEDIA  3
-#define L_NUM    4
-#define L_SYM    5
-#define L_FUN    6
+#define L_BASE      0
+#define L_NAV       1
+#define L_MOUSE     2
+#define L_MEDIA     3
+#define L_NUM       4
+#define L_SYM       5
+#define L_FUN       6
+#define L_GAMING_DH 7
