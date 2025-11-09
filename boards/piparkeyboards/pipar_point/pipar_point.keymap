@@ -170,7 +170,7 @@
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
 &uc ET_UE         &hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O      &uc ET_OT
 &uc ET_OE         &kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &hmr LALT DOT    &kp SLASH        &uc ET_AE
-                                                      &lt 3 ESC         &lt 1 SPACE       &lt 2 TAB         &lt 5 RET         &lt 4 BSPC        &lt 6 DEL
+                                                      &lt L_MEDIA ESC   &lt L_NAV SPACE   &lt L_MOUSE TAB   &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
 
@@ -247,7 +247,7 @@
                   &kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y            &kp SQT
 &uc ET_UE         &kp A             &kp R             &kp S             &kp T             &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I      &hmr RGUI O       &uc ET_OT
 &uc ET_OE         &kp Z             &kp X             &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &kp DOT          &kp SLASH         &uc ET_AE
-                                                      &kp ESC           &kp SPACE         &kp TAB           &kp RET           &kp BSPC          &kp DEL
+                                                      &kp ESC           &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
     };
