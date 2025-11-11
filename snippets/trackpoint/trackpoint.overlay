@@ -87,6 +87,7 @@
 	    ps2-device = <&uart_ps2>;
         tp-sensitivity = <128>;
         tp-val6-upper-speed = <200>;
+        tp-xy-swap;
         tp-x-invert;
         tp-y-invert;
         tp-neg-inertia = <6>;
