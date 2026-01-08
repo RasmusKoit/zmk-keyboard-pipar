@@ -101,7 +101,7 @@
     snippet_trackpoint_listener: snippet_trackpoint_listener {
         compatible = "zmk,input-listener";
         device = <&mouse_ps2>;
-        input-processors = <&zip_temp_layer 3 2500>;
+        input-processors = <&zip_temp_layer 3 1500>;
 
         // mouse {
         //     layers = <2>;
