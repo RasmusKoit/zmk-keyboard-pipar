@@ -201,8 +201,8 @@
 
             bindings = <
                   &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans 
-&trans            &kp LGUI          &kp LALT          &kp LCTRL         &kp LSHFT         &none             &kp M             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI        &trans 
-&trans            &trans            &hml RALT X       &trans            &trans            &trans            &trans            &trans            &trans            &kp LALT          &trans          &trans 
+&trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans          &trans 
+&trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans          &trans 
                                                       &cut              &copy             &paste            &mkp MB1          &mkp MB3          &mkp MB2
             >;
         };
