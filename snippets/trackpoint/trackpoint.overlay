@@ -102,12 +102,12 @@
         compatible = "zmk,input-listener";
         device = <&mouse_ps2>;
         input-processors = <&zip_temp_layer 3 1500>;
-
-        // mouse {
-        //     layers = <2>;
-        //     process-next;
-        // };
     };    
+};
+
+&zip_temp_layer {
+    require-prior-idle-ms = <1500>;
+    excluded-positions = <34 35 36 37 38 39>;
 };
 
 &gpiote {
