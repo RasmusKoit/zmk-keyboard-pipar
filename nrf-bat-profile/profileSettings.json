@@ -1,0 +1,9 @@
+{
+  "name": "YDL375678",
+  "deviceType": "npm1300",
+  "capacity": 2500,
+  "vLowerCutOff": 3,
+  "vUpperCutOff": 4.2,
+  "profiles": [],
+  "appVersion": "2.2.3"
+}
