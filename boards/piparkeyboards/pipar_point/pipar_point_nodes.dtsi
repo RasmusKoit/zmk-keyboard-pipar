@@ -84,6 +84,7 @@ zephyr_udc0: &usbd {
 			charging-enable;
 		};
 	};
+};
 
 &flash0 {
     /*
