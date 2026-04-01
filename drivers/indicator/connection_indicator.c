@@ -15,7 +15,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #define CONNECTION_LED_NODE DT_NODELABEL(connection_led)
 #define BLINK_DURATION_MS 300
 #define BLINK_PAUSE_MS 200
-#define STEADY_DELAY_MS 1500
+#define STEADY_DELAY_MS 500
 
 static const struct gpio_dt_spec connection_led = GPIO_DT_SPEC_GET(CONNECTION_LED_NODE, gpios);
 static struct k_work_delayable blink_work;
@@ -23,7 +23,8 @@ static uint8_t blink_count = 0;
 static uint8_t current_blink = 0;
 static bool is_blinking = false;
 static bool blink_state = false; // false = LED on phase, true = LED off phase
-static bool waiting_for_steady = false; // true = waiting 1.5s before staying on
+static bool waiting_for_steady = false; // true = waiting 500ms before staying on
+static bool initial_phase = false; // true = doing initial 300ms on + 500ms off
 
 
 static void blink_work_handler(struct k_work *work) {
@@ -31,8 +32,16 @@ static void blink_work_handler(struct k_work *work) {
         return;
     }
 
+    if (initial_phase) {
+        // Initial 300ms on is done, turn off and wait 500ms before blink sequence
+        gpio_pin_set_dt(&connection_led, 1); // Off (inverted)
+        initial_phase = false;
+        k_work_schedule(&blink_work, K_MSEC(STEADY_DELAY_MS));
+        return;
+    }
+
     if (waiting_for_steady) {
-        // 1.5s delay is done, turn LED on and stay on
+        // 500ms delay is done, turn LED on and stay on
         gpio_pin_set_dt(&connection_led, 0); // Stay on (inverted: 0 = on)
         is_blinking = false;
         waiting_for_steady = false;
@@ -47,7 +56,7 @@ static void blink_work_handler(struct k_work *work) {
             blink_state = false;
             k_work_schedule(&blink_work, K_MSEC(BLINK_DURATION_MS));
         } else {
-            // All blinks done, wait 1.5s off, then stay on
+            // All blinks done, wait 500ms off, then stay on
             waiting_for_steady = true;
             k_work_schedule(&blink_work, K_MSEC(STEADY_DELAY_MS));
         }
@@ -69,10 +78,11 @@ static void start_blink_sequence(uint8_t profile_index) {
     is_blinking = true;
     blink_state = false;
     waiting_for_steady = false;
+    initial_phase = true;
 
     LOG_DBG("Starting blink sequence: %d blinks for BT profile %d", blink_count, profile_index);
 
-    // Start first blink (on phase)
+    // Start with initial 300ms on
     gpio_pin_set_dt(&connection_led, 0); // On (inverted)
     k_work_schedule(&blink_work, K_MSEC(BLINK_DURATION_MS));
 }
