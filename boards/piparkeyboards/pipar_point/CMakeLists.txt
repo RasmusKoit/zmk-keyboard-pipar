@@ -12,3 +12,8 @@ if(BOARD_REVISION STREQUAL "right")
         message(FATAL_ERROR "trackpoint snippet must be included to build this board")
     endif()
 endif()
+
+# Add fuel gauge support
+zephyr_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../include)
+zephyr_library_sources(${CMAKE_CURRENT_SOURCE_DIR}/../../../src/battery_profile.c)
+zephyr_library_sources(${CMAKE_CURRENT_SOURCE_DIR}/../../../src/fuel_gauge.c)

@@ -1,2 +1,0 @@
-zephyr_library_sources(battery_profile.c)
-zephyr_library_sources(fuel_gauge.c)
