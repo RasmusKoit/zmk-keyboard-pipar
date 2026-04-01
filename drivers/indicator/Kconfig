@@ -3,3 +3,9 @@ config PIPAR_CAPS_INDICATOR
 	default n
 	help
 	  Enable caps lock LED indicator support for Pipar keyboards
+
+config PIPAR_CONNECTION_INDICATOR
+	bool "Pipar Connection Type LED Indicator"
+	default n
+	help
+	  Enable connection type (BT/USB) LED indicator support for Pipar keyboards
