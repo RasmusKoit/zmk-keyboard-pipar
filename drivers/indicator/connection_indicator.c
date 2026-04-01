@@ -110,8 +110,8 @@ static int connection_indicator_init(void) {
         return -ENODEV;
     }
 
-    // Start with LED on (assuming BT, inverted logic: 0 = on)
-    int ret = gpio_pin_configure_dt(&connection_led, GPIO_OUTPUT_INACTIVE);
+    // Start with LED off until first endpoint change event
+    int ret = gpio_pin_configure_dt(&connection_led, GPIO_OUTPUT_ACTIVE);
     if (ret < 0) {
         LOG_ERR("Failed to configure connection LED GPIO");
         return ret;
