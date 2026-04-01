@@ -83,11 +83,6 @@ zephyr_udc0: &usbd {
       thermistor-beta = <0>;
 			charging-enable;
 		};
-
-		npm1300_charger: charger {
-			compatible = "nordic,npm1300-charger";
-			status = "okay";
-		};
 	};
 
 &flash0 {
