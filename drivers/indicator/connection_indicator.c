@@ -49,11 +49,12 @@ static void blink_work_handler(struct k_work *work) {
     }
 
     if (blink_state) {
-        // Currently off, turn on for next blink
-        current_blink++;
+        // Currently off, check if we need more blinks
         if (current_blink < blink_count) {
+            // Turn on for next blink
             gpio_pin_set_dt(&connection_led, 0); // On (inverted)
             blink_state = false;
+            current_blink++;
             k_work_schedule(&blink_work, K_MSEC(BLINK_DURATION_MS));
         } else {
             // All blinks done, wait 500ms off, then stay on
