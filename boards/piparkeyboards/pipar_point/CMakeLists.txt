@@ -11,7 +11,4 @@ if(BOARD_REVISION STREQUAL "right")
     if(NOT "trackpoint" IN_LIST SNIPPET_LIST)
         message(FATAL_ERROR "trackpoint snippet must be included to build this board")
     endif()
-
-    # Add caps indicator support for right side
-    zephyr_library_sources(caps_indicator.c)
 endif()

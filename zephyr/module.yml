@@ -3,6 +3,8 @@ build:
   depends:
     - zmk-unicode
     - kb_zmk_ps2_mouse_trackpoint_driver
+  cmake: drivers
+  kconfig: drivers/Kconfig
   settings:
     board_root: .
     snippet_root: .

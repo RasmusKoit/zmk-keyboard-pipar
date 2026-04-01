@@ -1,0 +1,5 @@
+config PIPAR_CAPS_INDICATOR
+	bool "Pipar Caps Lock LED Indicator"
+	default n
+	help
+	  Enable caps lock LED indicator support for Pipar keyboards
