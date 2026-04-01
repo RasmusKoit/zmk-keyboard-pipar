@@ -23,3 +23,5 @@ CONFIG_SERIAL=y
 
 # Caps lock LED indicator
 CONFIG_PIPAR_CAPS_INDICATOR=y
+# Connection type LED indicator
+CONFIG_PIPAR_CONNECTION_INDICATOR=y

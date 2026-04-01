@@ -1,11 +1,1 @@
 #include "pipar_point_zmk_common.dtsi"
-
-/ {
-    indicators {
-        compatible = "gpio-leds";
-        connection_led: led_connection {
-            gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
-            label = "Connection indicator LED";
-        };
-    };
-};
