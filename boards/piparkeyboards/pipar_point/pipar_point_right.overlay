@@ -5,6 +5,10 @@
 };
 
 / {
+    chosen {
+        zmk,battery = &charger;
+    };
+
     indicators {
         compatible = "gpio-leds";
         caps_led: led_caps {
