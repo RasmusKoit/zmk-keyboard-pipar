@@ -41,8 +41,8 @@ static void blink_work_handler(struct k_work *work) {
     }
 
     if (waiting_for_steady) {
-        // 500ms delay is done, turn LED on and stay on
-        gpio_pin_set_dt(&connection_led, 0); // Stay on (inverted: 0 = on)
+        // 500ms delay is done, turn LED off and finish
+        gpio_pin_set_dt(&connection_led, 1); // Off (inverted: 1 = off)
         is_blinking = false;
         waiting_for_steady = false;
         return;
