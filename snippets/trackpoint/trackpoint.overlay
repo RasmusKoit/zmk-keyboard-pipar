@@ -127,7 +127,7 @@
 };
 
 &uart0 {
-    interrupts = < 2 3 >;
+    interrupts = < 2 0 >;
 };
 
 &i2c0 {
