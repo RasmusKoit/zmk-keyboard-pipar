@@ -1,5 +1,6 @@
 menu "Pipar Drivers"
 
 rsource "indicator/Kconfig"
+rsource "caps_word/Kconfig"
 
 endmenu

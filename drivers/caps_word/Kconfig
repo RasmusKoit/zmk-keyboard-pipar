@@ -1,0 +1,5 @@
+config PIPAR_CAPS_WORD_EVENT
+	bool "Pipar Caps Word State Event"
+	default y if DT_HAS_ZMK_BEHAVIOR_CAPS_WORD_ENABLED
+	help
+	  Override ZMK's caps_word behavior to emit state change events
