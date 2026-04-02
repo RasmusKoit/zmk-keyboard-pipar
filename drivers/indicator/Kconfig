@@ -21,7 +21,7 @@ config PIPAR_BATTERY_INDICATOR
 config PIPAR_BATTERY_LOW_THRESHOLD
 	int "Battery low threshold percentage"
 	default 20
-	range 5 50
+	range 5 100
 	depends on PIPAR_BATTERY_INDICATOR
 	help
 	  Battery percentage at or below which the low battery LED turns on.
