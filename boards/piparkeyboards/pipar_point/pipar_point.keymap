@@ -67,6 +67,7 @@
             wait-ms = <0>;
             bindings = <&bt BT_SEL 3 &bt BT_CLR>;
         };
+
     };
 
     //    00 01 02 03 04       05 06 07 08 09

@@ -25,3 +25,38 @@ config PIPAR_BATTERY_LOW_THRESHOLD
 	depends on PIPAR_BATTERY_INDICATOR
 	help
 	  Battery percentage at or below which the low battery LED turns on.
+
+config PIPAR_BLE_CONNECTION_INDICATOR
+	bool "Pipar BLE Connection LED Indicator"
+	default n
+	depends on ZMK_SPLIT
+	help
+	  Enable BLE connection LED indicator for split peripheral.
+	  LED is solid when connected to central, blinks when disconnected.
+
+config PIPAR_HID_INDICATOR
+	bool "Pipar HID Indicator LED"
+	default n
+	depends on ZMK_HID_INDICATORS
+	help
+	  Enable an LED driven by a configurable HID indicator bit.
+	  Can be used to show Num Lock, Scroll Lock, or any other
+	  HID indicator state.
+
+config PIPAR_HID_INDICATOR_BIT
+	int "HID indicator bit"
+	default 0
+	range 0 4
+	depends on PIPAR_HID_INDICATOR
+	help
+	  Which HID indicator bit drives the LED.
+	  0 = Num Lock, 1 = Caps Lock, 2 = Scroll Lock,
+	  3 = Compose, 4 = Kana.
+
+config PIPAR_HID_INDICATOR_INVERTED
+	bool "Invert HID indicator logic"
+	default n
+	depends on PIPAR_HID_INDICATOR
+	help
+	  When enabled, LED turns on when the HID indicator is OFF.
+	  Useful when the OS has the indicator on by default (e.g. Num Lock).

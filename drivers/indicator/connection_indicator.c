@@ -90,13 +90,13 @@ static void start_blink_sequence(uint8_t profile_index) {
 
 static void update_connection_led(bool usb_active, uint8_t bt_profile_index) {
     if (usb_active) {
-        // USB mode - turn LED off immediately
+        // USB mode - turn LED on solid
         if (is_blinking) {
             k_work_cancel_delayable(&blink_work);
             is_blinking = false;
         }
-        gpio_pin_set_dt(&connection_led, 1); // Off (inverted: 1 = off)
-        LOG_DBG("Connection indicator: USB (OFF)");
+        gpio_pin_set_dt(&connection_led, 0); // On (inverted: 0 = on)
+        LOG_DBG("Connection indicator: USB (ON)");
     } else {
         // BT mode - start blink sequence
         start_blink_sequence(bt_profile_index);
