@@ -9,3 +9,19 @@ config PIPAR_CONNECTION_INDICATOR
 	default n
 	help
 	  Enable connection type (BT/USB) LED indicator support for Pipar keyboards
+
+config PIPAR_BATTERY_INDICATOR
+	bool "Pipar Battery Low LED Indicator"
+	default n
+	depends on ZMK_BATTERY_REPORTING
+	help
+	  Enable battery low LED indicator using npm1300 PMIC LED0.
+	  LED turns on when battery drops below the configured threshold.
+
+config PIPAR_BATTERY_LOW_THRESHOLD
+	int "Battery low threshold percentage"
+	default 20
+	range 5 50
+	depends on PIPAR_BATTERY_INDICATOR
+	help
+	  Battery percentage at or below which the low battery LED turns on.

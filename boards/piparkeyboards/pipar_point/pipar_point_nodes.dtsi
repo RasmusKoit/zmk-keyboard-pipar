@@ -42,7 +42,7 @@ zephyr_udc0: &usbd {
 
     npm1300_leds: leds {
 			compatible = "nordic,npm1300-led";
-			nordic,led0-mode = "error";
+			nordic,led0-mode = "host";
 			nordic,led1-mode = "charging";
 			nordic,led2-mode = "host";
 		};

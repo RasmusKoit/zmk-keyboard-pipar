@@ -1,1 +1,7 @@
 #include "pipar_point_zmk_common.dtsi"
+
+/ {
+    chosen {
+        zmk,battery = &charger;
+    };
+};
