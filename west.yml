@@ -4,10 +4,12 @@ manifest:
       url-base: https://github.com/urob
     - name: filippor
       url-base: https://github.com/filippor
+    - name: RasmusKoit
+      url-base: https://github.com/RasmusKoit
   projects:
     - name: zmk-unicode
       remote: urob
       revision: v0.3
     - name: kb_zmk_ps2_mouse_trackpoint_driver
-      remote: filippor
-      revision: badjeff-4.1
+      remote: RasmusKoit
+      revision: pipar-stability
