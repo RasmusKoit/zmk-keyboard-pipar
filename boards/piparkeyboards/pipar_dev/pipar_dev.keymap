@@ -1,0 +1,31 @@
+/*
+ * Bring-up keymap for the Pipar Dev board.
+ *
+ * 3x7 matrix mapped to unique letters/digits so shorting any row/col pair
+ * on the J10/J11 breakout produces a distinct, identifiable USB HID event:
+ *
+ *   col:   0   1   2   3   4   5   6
+ *   row 0: 1   2   3   4   5   6   7
+ *   row 1: Q   W   E   R   T   Y   U
+ *   row 2: A   S   D   F   G   H   J
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "default";
+            bindings = <
+                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7
+                &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U
+                &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J
+            >;
+        };
+    };
+};

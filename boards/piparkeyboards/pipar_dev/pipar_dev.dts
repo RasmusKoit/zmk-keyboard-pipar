@@ -1,0 +1,169 @@
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
+
+#include <dt-bindings/led/led.h>
+#include <dt-bindings/zmk/matrix_transform.h>
+
+#include "pipar_dev-pinctrl.dtsi"
+#include "pipar_dev-layouts.dtsi"
+
+&physical_layout0 {
+    transform = <&matrix_transform0>;
+};
+
+/ {
+    model = "Pipar Dev";
+    compatible = "piparkeyboards,pipar_dev";
+
+    chosen {
+        zephyr,code-partition = &code_partition;
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &physical_layout0;
+    };
+
+    matrix_transform0: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        rows = <3>;
+        columns = <7>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6)
+        >;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+
+        diode-direction = "col2row";
+        col-gpios
+            = <&gpio0 28 GPIO_ACTIVE_HIGH>
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>
+            , <&gpio0 30 GPIO_ACTIVE_HIGH>
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>
+            , <&gpio0 2  GPIO_ACTIVE_HIGH>
+            , <&gpio0 3  GPIO_ACTIVE_HIGH>
+            , <&gpio0 5  GPIO_ACTIVE_HIGH>
+            ;
+
+        row-gpios
+            = <&gpio1 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led1: led_1 {
+            gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+            label = "LED 1";
+        };
+
+        led2: led_2 {
+            gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+            label = "LED 2";
+        };
+    };
+};
+
+&adc {
+    status = "okay";
+};
+
+&gpiote {
+    status = "okay";
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+&gpio1 {
+    status = "okay";
+};
+
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
+&i2c0 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    npm1300: pmic@6b {
+        compatible = "nordic,npm1300";
+        reg = <0x6b>;
+
+        regulators {
+            compatible = "nordic,npm1300-regulator";
+
+            buck1: BUCK1 {
+                regulator-boot-off;
+                status = "disabled";
+            };
+
+            buck2: BUCK2 {
+                regulator-min-microvolt = <3300000>;
+                regulator-max-microvolt = <3300000>;
+                regulator-boot-on;
+                regulator-always-on;
+            };
+
+            ldo1: LDO1 {
+                status = "disabled";
+            };
+
+            ldo2: LDO2 {
+                status = "disabled";
+            };
+        };
+
+        charger: charger {
+            compatible = "nordic,npm1300-charger";
+            term-microvolt = <4200000>;
+            term-warm-microvolt = <4000000>;
+            current-microamp = <500000>;
+            term-current-percent = <10>;
+            dischg-limit-microamp = <1000000>;
+            vbus-limit-microamp = <500000>;
+            thermistor-ohms = <0>;
+            thermistor-beta = <0>;
+            charging-enable;
+        };
+    };
+};
+
+&flash0 {
+    /*
+     * For more information, see:
+     * http://docs.zephyrproject.org/latest/devices/dts/flash_partitions.html
+     */
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        sd_partition: partition@0 {
+            reg = <0x00000000 0x00026000>;
+        };
+        code_partition: partition@26000 {
+            reg = <0x00026000 0x000c6000>;
+        };
+
+        storage_partition: partition@ec000 {
+            reg = <0x000ec000 0x00008000>;
+        };
+
+        boot_partition: partition@f4000 {
+            reg = <0x000f4000 0x0000c000>;
+        };
+    };
+};
