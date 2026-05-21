@@ -1,0 +1,27 @@
+config PIPAR_WATCHDOG_FEEDER
+    bool "Pipar recovery watchdog feeder"
+    default n
+    depends on TASK_WDT && WATCHDOG
+    help
+      Feeds a task watchdog from the system workqueue so the device
+      auto-resets if the workqueue hangs (e.g., a stuck I2C transfer
+      or any work handler that never returns).
+
+config PIPAR_WATCHDOG_TASK_TIMEOUT_MS
+    int "Task watchdog timeout (ms)"
+    default 8000
+    range 1000 30000
+    depends on PIPAR_WATCHDOG_FEEDER
+    help
+      If the system workqueue doesn't feed the watchdog within this
+      timeout, the device resets.
+
+config PIPAR_WATCHDOG_FEED_INTERVAL_MS
+    int "Watchdog feed interval (ms)"
+    default 2000
+    range 100 10000
+    depends on PIPAR_WATCHDOG_FEEDER
+    help
+      How often the feeder schedules itself to feed the watchdog.
+      Should be substantially less than the task timeout to allow
+      for normal workqueue jitter.

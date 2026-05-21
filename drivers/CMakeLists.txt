@@ -2,3 +2,4 @@ if(CONFIG_PIPAR_CAPS_INDICATOR OR CONFIG_PIPAR_CONNECTION_INDICATOR OR CONFIG_PI
         add_subdirectory(indicator)
 endif()
 add_subdirectory_ifdef(CONFIG_PIPAR_CAPS_WORD_EVENT caps_word)
+add_subdirectory_ifdef(CONFIG_PIPAR_WATCHDOG_FEEDER watchdog)

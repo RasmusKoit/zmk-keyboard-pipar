@@ -67,3 +67,17 @@ CONFIG_ZMK_BATTERY_REPORT_INTERVAL=60
 CONFIG_PIPAR_BATTERY_INDICATOR=y
 CONFIG_PIPAR_BATTERY_LOW_THRESHOLD=20
 
+# --- Stability fixes ---
+
+# I2C transfer timeout — converts a stuck TWIM transfer into a recoverable
+# -EAGAIN error instead of an indefinite K_FOREVER wait. Required for the
+# battery_indicator retry/recovery logic to work.
+CONFIG_I2C_NRFX_TRANSFER_TIMEOUT=500
+
+# Recovery watchdog — resets the device if the system workqueue blocks
+# for longer than ~8s (e.g., stuck I2C transfer, deadlocked work handler).
+CONFIG_WATCHDOG=y
+CONFIG_TASK_WDT=y
+CONFIG_TASK_WDT_HW_FALLBACK=y
+CONFIG_PIPAR_WATCHDOG_FEEDER=y
+

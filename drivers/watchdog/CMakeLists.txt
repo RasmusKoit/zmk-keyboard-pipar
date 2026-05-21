@@ -1,0 +1,2 @@
+zephyr_library()
+zephyr_library_sources_ifdef(CONFIG_PIPAR_WATCHDOG_FEEDER watchdog_feeder.c)
