@@ -81,3 +81,18 @@ CONFIG_TASK_WDT=y
 CONFIG_TASK_WDT_HW_FALLBACK=y
 CONFIG_PIPAR_WATCHDOG_FEEDER=y
 
+# The HW fallback window is TASK_WDT_MIN_TIMEOUT + TASK_WDT_HW_FALLBACK_DELAY,
+# fed from a kernel-timer ISR. With the 100ms+20ms defaults, an NVS page erase
+# (which stalls the whole CPU for ~90ms on nRF52840) can starve the feed past
+# the 120ms window and hard-reset the MCU on any settings write. Widen the
+# window to 2s and chunk erases so they can't stall that long anyway.
+CONFIG_TASK_WDT_MIN_TIMEOUT=1000
+CONFIG_TASK_WDT_HW_FALLBACK_DELAY=1000
+CONFIG_SOC_FLASH_NRF_PARTIAL_ERASE=y
+
+# The battery read → LED indicator → BAS notify chain all runs nested on
+# ZMK's low-priority workqueue, whose 768-byte default stack it overflows.
+CONFIG_ZMK_LOW_PRIORITY_THREAD_STACK_SIZE=2048
+# Fault cleanly on stack overflow instead of silently corrupting RAM.
+CONFIG_HW_STACK_PROTECTION=y
+
