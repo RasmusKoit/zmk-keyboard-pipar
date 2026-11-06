@@ -78,6 +78,16 @@ into a ZMK build. From that repo:
 
 See the `pipar` repo's `build.sh` for all available targets.
 
+## License
+
+[MIT](LICENSE), the same licence as ZMK. Files with their own
+`SPDX-License-Identifier` header keep that licence: the ZMK-derived sources are
+MIT (The ZMK Contributors), and the battery profiles in `nrf-bat-profile/` are
+under Nordic Semiconductor's LicenseRef-Nordic-5-Clause.
+
+The board hardware lives in [`pipar`](https://github.com/RasmusKoit/pipar)
+under CERN-OHL-S-2.0.
+
 ## More info
 
 See [ZMK's modules documentation](https://zmk.dev/docs/features/modules) and the
