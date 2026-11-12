@@ -18,11 +18,15 @@
     behaviors {
         // ' , . / with the shifted characters of a US keyboard (" < > ?),
         // so the cheat sheets hold on the Estonian layout too.
+        // " > ? are Shift+key on Estonian, so Shift is kept (keep-mods) and
+        // rolling into a capital letter works. < is the unshifted <> key,
+        // so et_comma has to hide Shift while it is held.
         et_sqt: et_single_quote {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp ET_SQT>, <&kp ET_DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         et_comma: et_comma {
@@ -37,6 +41,7 @@
             #binding-cells = <0>;
             bindings = <&kp ET_DOT>, <&kp ET_GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         et_slash: et_slash {
@@ -44,6 +49,7 @@
             #binding-cells = <0>;
             bindings = <&kp ET_SLASH>, <&kp ET_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Right-hand home-row mods whose tap is one of the above.
