@@ -1,0 +1,93 @@
+/*
+ * Behaviours for the Estonian computer-layout variant (PIPAR_HOST_ESTONIAN),
+ * used by the P_* and PIPAR_HMR_* macros in <pipar/keymap_variant.h>.
+ * Empty for the international variant.
+ *
+ * Include after defining KEYS_LEFT and KEYS_THUMBS.
+ */
+
+#if defined(PIPAR_HOST_ESTONIAN)
+// Caps Word's default continue list with the Estonian underscore (Shift+-).
+// Õ Ä Ö Ü still end Caps Word, as on the international variant; Shift +
+// the Caps Word key (Caps Lock) capitalises them.
+&caps_word {
+    continue-list = <ET_UNDER BSPC DEL>;
+};
+
+/ {
+    behaviors {
+        // ' , . / with the shifted characters of a US keyboard (" < > ?),
+        // so the cheat sheets hold on the Estonian layout too.
+        et_sqt: et_single_quote {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ET_SQT>, <&kp ET_DQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        et_comma: et_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ET_COMMA>, <&kp ET_LT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        et_dot: et_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ET_DOT>, <&kp ET_GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        et_slash: et_slash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ET_SLASH>, <&kp ET_QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Right-hand home-row mods whose tap is one of the above.
+        // Same settings as hmr in the keymaps; keep them in sync.
+        hmr_sqt: homerow_mods_right_sqt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&et_sqt>;
+            hold-trigger-key-positions = <KEYS_LEFT KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hmr_dot: homerow_mods_right_dot {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&et_dot>;
+            hold-trigger-key-positions = <KEYS_LEFT KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+    };
+
+    macros {
+        // Dead key followed by a space types the character itself.
+        et_tilde: et_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp PIPAR_ET_DEAD_TILDE &kp SPACE>;
+        };
+
+#if defined(PIPAR_ET_DEAD_GRAVE)
+        et_grave: et_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp PIPAR_ET_DEAD_GRAVE &kp SPACE>;
+        };
+#endif
+    };
+};
+#endif
