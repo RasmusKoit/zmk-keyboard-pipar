@@ -1,17 +1,222 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
 
+/*
+ * Pipar ja Sool keymap. Follows the Pipar Point keymap, minus what the Sool
+ * doesn't have: the outer pinky column (Estonian keys), the trackpoint
+ * (Mouse layer) and backlight controls.
+ *
+ *    00 01 02 03 04       05 06 07 08 09
+ *    10 11 12 13 14       15 16 17 18 19
+ *    20 21 22 23 24       25 26 27 28 29
+ *          30 31 32       33 34 35
+ */
+
+#define KEYS_LEFT   0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_RIGHT  5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define KEYS_THUMBS 30 31 32 33 34 35
+
+#define L_BASE      0
+#define L_GAMING_DH 1
+#define L_NAV       2
+#define L_MEDIA     3
+#define L_NUM       4
+#define L_SYM       5
+#define L_FUN       6
 
 / {
+
+    macros {
+        macro_bt_sel_0: macro_bt_sel_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 0 &bt BT_CLR>;
+        };
+
+        macro_bt_sel_1: macro_bt_sel_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 1 &bt BT_CLR>;
+        };
+
+        macro_bt_sel_2: macro_bt_sel_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 2 &bt BT_CLR>;
+        };
+
+        macro_bt_sel_3: macro_bt_sel_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 3 &bt BT_CLR>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        // O + / (right pinky column, home and bottom row)
+        combo_gaming_cdh {
+            timeout-ms = <50>;
+            key-positions = <19 29>;
+            bindings = <&to L_GAMING_DH>;
+            layers = <L_FUN>;
+        };
+        combo_base_layer {
+            timeout-ms = <50>;
+            key-positions = <19 29>;
+            bindings = <&to L_BASE>;
+            layers = <L_GAMING_DH>;
+        };
+    };
+
+    behaviors {
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_RIGHT KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_LEFT KEYS_THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        bt_sel_0: bluetooth_select_0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&macro_bt_sel_0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_sel_1: bluetooth_select_1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&macro_bt_sel_1>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_sel_2: bluetooth_select_2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&macro_bt_sel_2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_sel_3: bluetooth_select_3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&macro_bt_sel_3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        word_caps: word_caps {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&caps_word>, <&kp CAPS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
+            display-name = "Base";
+
+            // |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  '  |
+            // |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |
+            // |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |
+            //             | ESC | SPC | TAB |   | ENT | BSPC | DEL |
             bindings = <
-    &kp Q           &kp W           &kp F           &kp P           &kp B                           &kp J           &kp L          &kp U          &kp Y           &kp SQT
-    &kp A           &kp R           &kp S           &kp T           &kp G                           &kp M           &kp N          &kp E          &kp I           &kp O
-    &kp Z           &kp X           &kp C           &kp D           &kp V                           &kp K           &kp H          &kp CMMA       &mt RALT DOT    &kp SEMI
-                                    &kp ESC         &kp SPACE       &kp TAB                         &kp ENTER       &kp BSPC       &studio_unlock
+&kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y             &kp SQT
+&hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I       &hmr RGUI O
+&kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &hmr LALT DOT     &kp SLASH
+                                    &lt L_MEDIA ESC   &lt L_NAV SPACE   &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
+            >;
+        };
+
+        gaming {
+            display-name = "Gaming-CDH";
+
+            bindings = <
+&kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y             &kp SQT
+&kp A             &kp R             &kp S             &kp T             &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I       &hmr RGUI O
+&mt LSHFT Z       &kp X             &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &kp DOT           &kp SLASH
+                                    &kp ESC           &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
+            >;
+        };
+
+        navigation {
+            display-name = "Nav";
+
+            bindings = <
+&none             &none             &none             &none             &none             &none             &none             &none             &none             &none
+&kp LGUI          &kp LALT          &kp LCTRL         &kp LSHFT         &none             &word_caps        &kp LEFT          &kp DOWN          &kp UP            &kp RIGHT
+&none             &hml RALT X       &none             &none             &none             &kp INSERT        &kp HOME          &kp PAGE_DOWN     &kp PAGE_UP       &kp END
+                                    &none             &none             &none             &kp RET           &kp BSPC          &kp DEL
+            >;
+        };
+
+        media {
+            display-name = "Media";
+
+            bindings = <
+&none             &none             &none             &none             &none             &none             &none             &none             &none             &bt BT_CLR_ALL
+&kp LGUI          &kp LALT          &kp LCTRL         &kp LSHFT         &none             &none             &kp C_PREV        &kp C_VOL_DN      &kp C_VOL_UP      &kp C_NEXT
+&none             &hml RALT X       &none             &none             &none             &out OUT_TOG      &bt_sel_0         &bt_sel_1         &bt_sel_2         &bt_sel_3
+                                    &none             &none             &none             &kp C_STOP        &kp C_PP          &kp C_MUTE
+            >;
+        };
+
+        num {
+            display-name = "Num";
+
+            bindings = <
+&kp LBKT          &kp N7            &kp N8            &kp N9            &kp RBKT          &none             &none             &none             &none             &none
+&kp SEMI          &kp N4            &kp N5            &kp N6            &kp EQUAL         &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI
+&kp GRAVE         &kp N1            &kp N2            &kp N3            &kp BSLH          &none             &none             &none             &kp LALT          &none
+                                    &kp DOT           &kp N0            &kp MINUS         &none             &none             &none
+            >;
+        };
+
+        sym {
+            display-name = "Sym";
+
+            bindings = <
+&kp LBRC          &kp AMPS          &kp ASTRK         &kp LPAR          &kp RBRC          &none             &none             &none             &none             &none
+&kp COLON         &kp DLLR          &kp PRCNT         &kp CARET         &kp PLUS          &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI
+&kp TILDE         &kp EXCL          &kp AT            &kp HASH          &kp PIPE          &none             &none             &none             &kp LALT          &none
+                                    &kp LPAR          &kp RPAR          &kp UNDER         &none             &none             &none
+            >;
+        };
+
+        fun {
+            display-name = "Fun";
+
+            bindings = <
+&kp F12           &kp F7            &kp F8            &kp F9            &kp PSCRN         &none             &none             &studio_unlock    &none             &none
+&kp F11           &kp F4            &kp F5            &kp F6            &kp SLCK          &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI
+&kp F10           &kp F1            &kp F2            &kp F3            &kp PAUSE_BREAK   &none             &none             &none             &kp LALT          &none
+                                    &kp K_APP         &kp SPACE         &kp TAB           &none             &none             &none
             >;
         };
     };
