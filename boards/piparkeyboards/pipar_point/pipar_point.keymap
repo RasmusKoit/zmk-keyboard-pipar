@@ -17,6 +17,7 @@
 
 &uc {
     default-mode = <PIPAR_UC_MODE>;
+    minimum-length = <PIPAR_UC_MIN_LENGTH>;
     win-compose-key = <RALT>;
 };
 

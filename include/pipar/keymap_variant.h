@@ -18,7 +18,6 @@
  * On QWERTY, ' takes the right home-row pinky key; ; is on the Num layer.
  */
 #if defined(PIPAR_LAYOUT_QWERTY)
-#define PIPAR_LAYOUT_NAME "QWERTY"
 #define PIPAR_GAMING_NAME "Gaming"
 #define PIPAR_T0 Q
 #define PIPAR_T1 W
@@ -48,7 +47,6 @@
 #define PIPAR_B5 N
 #define PIPAR_B6 M
 #else /* Colemak-DH */
-#define PIPAR_LAYOUT_NAME "Colemak-DH"
 #define PIPAR_GAMING_NAME "Gaming-CDH"
 #define PIPAR_T0 Q
 #define PIPAR_T1 W
@@ -86,23 +84,24 @@
  * OS-specific parts:
  *   PIPAR_UC_MODE      Unicode input mode for keys that send characters
  *                      directly (the Pipar Point's Estonian keys).
+ *   PIPAR_UC_MIN_LENGTH  Zero-pad the hex code to this many digits.
  *   PIPAR_CUT/COPY/PASTE  Clipboard shortcuts.
  */
 #if defined(PIPAR_OS_MAC)
-#define PIPAR_OS_NAME "macOS"
 #define PIPAR_UC_MODE UC_MODE_MACOS   /* needs the "Unicode Hex Input" input source */
+#define PIPAR_UC_MIN_LENGTH 4         /* Unicode Hex Input reads 4 hex digits */
 #define PIPAR_CUT   LG(X)
 #define PIPAR_COPY  LG(C)
 #define PIPAR_PASTE LG(V)
 #elif defined(PIPAR_OS_LINUX)
-#define PIPAR_OS_NAME "Linux"
 #define PIPAR_UC_MODE UC_MODE_LINUX   /* Ctrl+Shift+U, IBus/GTK */
+#define PIPAR_UC_MIN_LENGTH 0
 #define PIPAR_CUT   LS(DEL)
 #define PIPAR_COPY  LC(INS)
 #define PIPAR_PASTE LS(INS)
 #else /* Windows */
-#define PIPAR_OS_NAME "Windows"
 #define PIPAR_UC_MODE UC_MODE_WIN_COMPOSE /* needs WinCompose */
+#define PIPAR_UC_MIN_LENGTH 0
 #define PIPAR_CUT   LS(DEL)
 #define PIPAR_COPY  LC(INS)
 #define PIPAR_PASTE LS(INS)
