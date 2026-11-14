@@ -8,8 +8,9 @@
  *           The firmware does the Colemak-DH / QWERTY mapping.
  * Computer: PIPAR_HOST_INTERNATIONAL (default) or PIPAR_HOST_ESTONIAN, the
  *           keyboard layout selected on the computer:
- *             international  US or US International. The Point's Estonian
- *                            keys type through the OS's Unicode input.
+ *             international  US or US International. The Õ Ä Ö Ü keys
+ *                            (Point pinky column, Sool Nav layer) type
+ *                            through the OS's Unicode input.
  *             estonian       Estonian. Every key is sent as the Estonian key
  *                            that types the same character, so the cheat
  *                            sheets apply to both.
