@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
+#include <pipar/keymap_variant.h>
 
 /*
  * Pipar ja Sool keymap. Follows the Pipar Point keymap, minus what the Sool
@@ -142,25 +143,26 @@
         default_layer {
             display-name = "Base";
 
+            // Colemak-DH shown; letters come from pipar/keymap_variant.h
             // |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  '  |
             // |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |
             // |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |
             //             | ESC | SPC | TAB |   | ENT | BSPC | DEL |
             bindings = <
-&kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y             &kp SQT
-&hml LGUI A       &hml LALT R       &hml LCTRL S      &hml LSHFT T      &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I       &hmr RGUI O
-&kp Z             &hml RALT X       &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &hmr LALT DOT     &kp SLASH
+&kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8             &kp PIPAR_T9
+&hml LGUI PIPAR_H0       &hml LALT PIPAR_H1       &hml LCTRL PIPAR_H2      &hml LSHFT PIPAR_H3      &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8       &hmr RGUI PIPAR_H9
+&kp PIPAR_B0             &hml RALT PIPAR_B1       &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             &kp PIPAR_B7         &hmr LALT PIPAR_B8     &kp PIPAR_B9
                                     &lt L_MEDIA ESC   &lt L_NAV SPACE   &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
 
         gaming {
-            display-name = "Gaming-CDH";
+            display-name = PIPAR_GAMING_NAME;
 
             bindings = <
-&kp Q             &kp W             &kp F             &kp P             &kp B             &kp J             &kp L             &kp U             &kp Y             &kp SQT
-&kp A             &kp R             &kp S             &kp T             &kp G             &kp M             &hmr RSHFT N      &hmr RCTRL E      &hmr RALT I       &hmr RGUI O
-&mt LSHFT Z       &kp X             &kp C             &kp D             &kp V             &kp K             &kp H             &kp COMMA         &kp DOT           &kp SLASH
+&kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8             &kp PIPAR_T9
+&kp PIPAR_H0             &kp PIPAR_H1             &kp PIPAR_H2             &kp PIPAR_H3             &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8       &hmr RGUI PIPAR_H9
+&mt LSHFT PIPAR_B0       &kp PIPAR_B1             &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             &kp PIPAR_B7         &kp PIPAR_B8           &kp PIPAR_B9
                                     &kp ESC           &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };

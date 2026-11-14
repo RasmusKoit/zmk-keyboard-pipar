@@ -8,7 +8,7 @@
 #define KEYS_RIGHT  5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33
 #define KEYS_THUMBS 34 35 36 37 38 39
 
-#define ET_OT  0xf5 0xd5    // ō/Ō
+#define ET_OT  0xf5 0xd5    // õ/Õ
 #define ET_AE  0xe4 0xc4    // ä/Ä
 #define ET_OE  0xf6 0xd6    // ö/Ö
 #define ET_UE  0xfc 0xdc    // ü/Ü
