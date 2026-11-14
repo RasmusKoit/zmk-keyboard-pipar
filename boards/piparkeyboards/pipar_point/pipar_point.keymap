@@ -6,6 +6,7 @@
 #include <behaviors/unicode.dtsi>
 #include "include/keymap_helper.h"
 #include <pipar/keymap_variant.h>
+#include <pipar/estonian.dtsi>
 
 #ifdef PIPAR_POINT_TRACKPOINT
     #include "include/mouse_tp.dtsi"
@@ -170,9 +171,9 @@
             //                   | ESC | SPC | TAB |   | ENT | BSCP | DEL |
 
             bindings = <
-                  &kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8            &kp PIPAR_T9
-&uc ET_UE         &hml LGUI PIPAR_H0       &hml LALT PIPAR_H1       &hml LCTRL PIPAR_H2      &hml LSHFT PIPAR_H3      &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8      &hmr RGUI PIPAR_H9      &uc ET_OT
-&uc ET_OE         &kp PIPAR_B0             &hml RALT PIPAR_B1       &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             &kp PIPAR_B7         &hmr LALT PIPAR_B8    &kp PIPAR_B9        &uc ET_AE
+                  &kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8            PIPAR_BASE_T9
+PIPAR_KEY_UE      &hml LGUI PIPAR_H0       &hml LALT PIPAR_H1       &hml LCTRL PIPAR_H2      &hml LSHFT PIPAR_H3      &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8      PIPAR_BASE_H9           PIPAR_KEY_OT
+PIPAR_KEY_OE      &kp PIPAR_B0             &hml RALT PIPAR_B1       &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             PIPAR_BASE_B7        PIPAR_BASE_B8         PIPAR_BASE_B9       PIPAR_KEY_AE
                                                       &lt L_MEDIA ESC   &lt L_NAV SPACE   &lt L_MOUSE TAB   &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
@@ -181,9 +182,9 @@
             display-name = PIPAR_GAMING_NAME;
 
             bindings = <
-                  &kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8            &kp PIPAR_T9
-&uc ET_UE         &kp PIPAR_H0             &kp PIPAR_H1             &kp PIPAR_H2             &kp PIPAR_H3             &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8      &hmr RGUI PIPAR_H9       &uc ET_OT
-&uc ET_OE         &mt LSHFT PIPAR_B0       &kp PIPAR_B1             &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             &kp PIPAR_B7         &kp PIPAR_B8          &kp PIPAR_B9         &uc ET_AE
+                  &kp PIPAR_T0             &kp PIPAR_T1             &kp PIPAR_T2             &kp PIPAR_T3             &kp PIPAR_T4             &kp PIPAR_T5             &kp PIPAR_T6             &kp PIPAR_T7             &kp PIPAR_T8            PIPAR_BASE_T9
+PIPAR_KEY_UE      &kp PIPAR_H0             &kp PIPAR_H1             &kp PIPAR_H2             &kp PIPAR_H3             &kp PIPAR_H4             &kp PIPAR_H5             &hmr RSHFT PIPAR_H6      &hmr RCTRL PIPAR_H7      &hmr RALT PIPAR_H8      PIPAR_BASE_H9            PIPAR_KEY_OT
+PIPAR_KEY_OE      &mt LSHFT PIPAR_B0       &kp PIPAR_B1             &kp PIPAR_B2             &kp PIPAR_B3             &kp PIPAR_B4             &kp PIPAR_B5             &kp PIPAR_B6             PIPAR_BASE_B7        PIPAR_GAME_B8         PIPAR_BASE_B9        PIPAR_KEY_AE
                                                       &kp ESC           &kp SPACE         &kp TAB           &lt L_SYM RET     &lt L_NUM BSPC    &lt L_FUN DEL
             >;
         };
@@ -225,10 +226,10 @@
             display-name = "Num";
 
             bindings = <
-                  &kp LBKT          &kp N7            &kp N8            &kp N9            &kp RBKT          &none             &none             &none             &none             &none                    
-&none             &kp SEMI          &kp N4            &kp N5            &kp N6            &kp EQUAL         &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI         &none 
-&none             &kp GRAVE         &kp N1            &kp N2            &kp N3            &kp BSLH          &none             &none             &none             &kp LALT          &none            &none 
-                                                      &kp DOT           &kp N0            &kp MINUS         &none             &none             &none
+                  P_LBKT            &kp N7            &kp N8            &kp N9            P_RBKT            &none             &none             &none             &none             &none                    
+&none             P_SEMI            &kp N4            &kp N5            &kp N6            P_EQUAL           &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI         &none 
+&none             P_GRAVE           &kp N1            &kp N2            &kp N3            P_BSLH            &none             &none             &none             &kp LALT          &none            &none 
+                                                      P_DOT             &kp N0            P_MINUS           &none             &none             &none
             >;
         };
 
@@ -236,10 +237,10 @@
             display-name = "Sym";
 
             bindings = <
-                  &kp LBRC          &kp AMPS          &kp ASTRK         &kp LPAR          &kp RBRC          &none             &none             &none             &none             &none                    
-&none             &kp COLON         &kp DLLR          &kp PRCNT         &kp CARET         &kp PLUS          &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI         &none 
-&none             &kp TILDE         &kp EXCL          &kp AT            &kp HASH          &kp PIPE          &none             &none             &none             &kp LALT          &none            &none 
-                                                      &kp LPAR          &kp RPAR          &kp UNDER         &none             &none             &none
+                  P_LBRC            P_AMPS            P_ASTRK           P_LPAR            P_RBRC            &none             &none             &none             &none             &none                    
+&none             P_COLON           P_DLLR            P_PRCNT           P_CARET           P_PLUS            &none             &kp RSHFT         &kp RCTRL         &kp RALT          &kp RGUI         &none 
+&none             P_TILDE           P_EXCL            P_AT              P_HASH            P_PIPE            &none             &none             &none             &kp LALT          &none            &none 
+                                                      P_LPAR            P_RPAR            P_UNDER           &none             &none             &none
             >;
         };
 
