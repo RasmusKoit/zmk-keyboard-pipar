@@ -2,12 +2,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
+#include <behaviors/unicode.dtsi>
 #include <pipar/keymap_variant.h>
 
 /*
  * Pipar ja Sool keymap. Follows the Pipar Point keymap, minus what the Sool
- * doesn't have: the outer pinky column (Estonian keys), the trackpoint
- * (Mouse layer) and backlight controls.
+ * doesn't have: the outer pinky column, the trackpoint (Mouse layer) and
+ * backlight controls. The Point's Estonian keys (Ü Õ Ö Ä) are on the Nav
+ * layer's right-hand top row instead.
  *
  *    00 01 02 03 04       05 06 07 08 09
  *    10 11 12 13 14       15 16 17 18 19
@@ -20,6 +22,12 @@
 #define KEYS_THUMBS 30 31 32 33 34 35
 
 #include <pipar/estonian.dtsi>
+
+&uc {
+    default-mode = <PIPAR_UC_MODE>;
+    minimum-length = <PIPAR_UC_MIN_LENGTH>;
+    win-compose-key = <RALT>;
+};
 
 #define L_BASE      0
 #define L_GAMING_DH 1
@@ -172,8 +180,9 @@
         navigation {
             display-name = "Nav";
 
+            // Right-hand top row: the Estonian letters Ü Õ Ö Ä.
             bindings = <
-&none             &none             &none             &none             &none             &none             &none             &none             &none             &none
+&none             &none             &none             &none             &none             PIPAR_KEY_UE      PIPAR_KEY_OT      PIPAR_KEY_OE      PIPAR_KEY_AE      &none
 &kp LGUI          &kp LALT          &kp LCTRL         &kp LSHFT         &none             &word_caps        &kp LEFT          &kp DOWN          &kp UP            &kp RIGHT
 &none             &hml RALT X       &none             &none             &none             &kp INSERT        &kp HOME          &kp PAGE_DOWN     &kp PAGE_UP       &kp END
                                     &none             &none             &none             &kp RET           &kp BSPC          &kp DEL
