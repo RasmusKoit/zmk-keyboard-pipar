@@ -8,8 +8,9 @@
  *           The firmware does the Colemak-DH / QWERTY mapping.
  * Computer: PIPAR_HOST_INTERNATIONAL (default) or PIPAR_HOST_ESTONIAN, the
  *           keyboard layout selected on the computer:
- *             international  US or US International. The Point's Estonian
- *                            keys type through the OS's Unicode input.
+ *             international  US or US International. The Õ Ä Ö Ü keys
+ *                            (Point pinky column, Sool Nav layer) type
+ *                            through the OS's Unicode input.
  *             estonian       Estonian. Every key is sent as the Estonian key
  *                            that types the same character, so the cheat
  *                            sheets apply to both.
@@ -188,10 +189,16 @@
 #endif
 
 /*
- * The Pipar Point's Õ Ä Ö Ü keys.
- * International: Unicode input (see PIPAR_UC_MODE). Estonian: the Estonian
- * layout's own keys, so Shift and Caps Lock work as usual.
+ * Õ Ä Ö Ü: the Pipar Point's outer pinky keys and the Sool's Nav layer.
+ * International: Unicode input (see PIPAR_UC_MODE), lower/upper case code
+ * points. Estonian: the Estonian layout's own keys, so Shift and Caps Lock
+ * work as usual.
  */
+#define ET_OT  0xf5 0xd5    /* õ/Õ */
+#define ET_AE  0xe4 0xc4    /* ä/Ä */
+#define ET_OE  0xf6 0xd6    /* ö/Ö */
+#define ET_UE  0xfc 0xdc    /* ü/Ü */
+
 #if defined(PIPAR_HOST_ESTONIAN)
 #define PIPAR_KEY_OT &kp ET_O_TILDE
 #define PIPAR_KEY_AE &kp ET_A_UMLAUT
@@ -207,8 +214,8 @@
 /*
  * OS-specific parts:
  *   PIPAR_UC_MODE      Unicode input mode for keys that send characters
- *                      directly (the Pipar Point's Estonian keys on the
- *                      international variant).
+ *                      directly (the Õ Ä Ö Ü keys on the international
+ *                      variant).
  *   PIPAR_UC_MIN_LENGTH  Zero-pad the hex code to this many digits.
  *   PIPAR_CUT/COPY/PASTE  Clipboard shortcuts.
  */
