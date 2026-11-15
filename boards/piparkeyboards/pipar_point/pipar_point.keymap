@@ -25,6 +25,12 @@
 / {
 
     macros {
+        undo: undo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PIPAR_UNDO>;
+        };
+
         cut: cut {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -206,8 +212,8 @@ PIPAR_KEY_OE      &mt LSHFT PIPAR_B0       &kp PIPAR_B1             &kp PIPAR_B2
             bindings = <
                   &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans 
 &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans          &trans 
-&trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans            &trans          &trans 
-                                                      &cut              &copy             &paste            &mkp MB1          &mkp MB3          &mkp MB2
+&trans            &trans            &trans            &trans            &trans            &trans            &trans            &undo             &cut              &copy             &paste          &trans 
+                                                      &none             &none             &none             &mkp MB1          &mkp MB3          &mkp MB2
             >;
         };
 

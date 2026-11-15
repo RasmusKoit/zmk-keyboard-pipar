@@ -217,23 +217,26 @@
  *                      directly (the Õ Ä Ö Ü keys on the international
  *                      variant).
  *   PIPAR_UC_MIN_LENGTH  Zero-pad the hex code to this many digits.
- *   PIPAR_CUT/COPY/PASTE  Clipboard shortcuts.
+ *   PIPAR_UNDO/CUT/COPY/PASTE  Clipboard shortcuts.
  */
 #if defined(PIPAR_OS_MAC)
 #define PIPAR_UC_MODE UC_MODE_MACOS   /* needs the "Unicode Hex Input" input source */
 #define PIPAR_UC_MIN_LENGTH 4         /* Unicode Hex Input reads 4 hex digits */
+#define PIPAR_UNDO  LG(Z)
 #define PIPAR_CUT   LG(X)
 #define PIPAR_COPY  LG(C)
 #define PIPAR_PASTE LG(V)
 #elif defined(PIPAR_OS_LINUX)
 #define PIPAR_UC_MODE UC_MODE_LINUX   /* Ctrl+Shift+U, IBus/GTK */
 #define PIPAR_UC_MIN_LENGTH 0
+#define PIPAR_UNDO  LC(Z)
 #define PIPAR_CUT   LS(DEL)
 #define PIPAR_COPY  LC(INS)
 #define PIPAR_PASTE LS(INS)
 #else /* Windows */
 #define PIPAR_UC_MODE UC_MODE_WIN_COMPOSE /* needs WinCompose */
 #define PIPAR_UC_MIN_LENGTH 0
+#define PIPAR_UNDO  LC(Z)
 #define PIPAR_CUT   LS(DEL)
 #define PIPAR_COPY  LC(INS)
 #define PIPAR_PASTE LS(INS)
